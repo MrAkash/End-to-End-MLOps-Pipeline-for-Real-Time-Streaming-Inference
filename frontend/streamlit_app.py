@@ -130,7 +130,7 @@ if st.button("Predict"):
     try:
 
         response = requests.post(
-            "http://backend:8000/predict",
+            "https://customer-churn-prediction-backend-k4gx.onrender.com/predict",
             json=payload
         )
 
