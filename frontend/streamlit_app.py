@@ -161,3 +161,35 @@ if st.button("Predict"):
     except Exception as e:
 
         st.error(f"Error connecting to backend: {e}")
+
+st.markdown(
+    """
+    <style>
+    .footer {
+        position: fixed;
+        bottom: 10px;
+        right: 15px;
+        color: gray;
+        font-size: 13px;
+        text-align: right;
+        z-index: 100;
+    }
+
+    .footer a {
+        text-decoration: none;
+        color: #4CAF50;
+        font-weight: bold;
+    }
+    </style>
+
+    <div class="footer">
+        Developed by 
+        <a href="https://github.com/MrAkash" target="_blank">
+            Akash Kadam 🚀
+        </a>
+        <br>
+        Full Stack MLOps Project
+    </div>
+    """,
+    unsafe_allow_html=True
+)
