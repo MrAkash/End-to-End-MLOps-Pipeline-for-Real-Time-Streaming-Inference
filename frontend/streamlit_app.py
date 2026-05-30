@@ -45,7 +45,7 @@ st.markdown(
 )
 st.title("Real-Time Customer Churn Prediction")
 
-st_autorefresh(interval=10000, key="refresh")
+st_autorefresh(interval=2000, key="refresh")
 
 # ---------------- Form ---------------- #
 
