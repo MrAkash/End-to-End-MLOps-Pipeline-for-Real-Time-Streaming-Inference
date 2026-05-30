@@ -14,18 +14,31 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    .footer {
+    .owner-watermark {
         position: fixed;
-        bottom: 10px;
+        bottom: 15px;
         right: 15px;
-        color: gray;
-        font-size: 14px;
-        z-index: 100;
+        background-color: rgba(240, 242, 246, 0.9); /* Light background matching Streamlit */
+        color: #31333F; /* Dark text color */
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 600;
+        border: 1px solid #d3d3d3;
+        z-index: 999999;
+        pointer-events: none; /* Allows clicking through the badge if needed */
+    }
+    /* Dynamic adjustment for dark mode if the user switches themes */
+    @media (prefers-color-scheme: dark) {
+        .owner-watermark {
+            background-color: rgba(14, 17, 23, 0.9);
+            color: #FAFAFA;
+            border: 1px solid #4a4a4a;
+        }
     }
     </style>
-
-    <div class="footer">
-        Developed by <b>Akash Kadam</b> 🚀
+    <div class="owner-watermark">
+        Developed by: <b> Akash Kadam 🚀</b>
     </div>
     """,
     unsafe_allow_html=True
