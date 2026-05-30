@@ -138,12 +138,10 @@ The system streams incoming customer records through a cloud-hosted Kafka cluste
 Customer_Churn_Streaming_Project/
 │
 ├── backend/
-│   ├── main.py
-│   └── Dockerfile
+│   └──  main.py  
 │
 ├── frontend/
-│   ├── streamlit_app.py
-│   └── Dockerfile
+│   └── streamlit_app.py
 │
 ├── consumer/
 │   └── consumer.py
@@ -155,6 +153,7 @@ Customer_Churn_Streaming_Project/
 │   └── train.py
 │
 ├── requirements.txt
+├── Dockerfile
 ├── start.sh
 └── README.md
 ```
