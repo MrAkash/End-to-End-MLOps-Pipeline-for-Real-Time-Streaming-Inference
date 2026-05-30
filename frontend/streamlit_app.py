@@ -130,7 +130,7 @@ if st.button("Start Streaming Prediction"):
     try:
 
         response = requests.post(
-            "http://backend:8000/predict",
+            "http://127.0.0.1:8000/predict",
             json=payload
         )
 
@@ -150,7 +150,7 @@ st.subheader("Latest Streaming Prediction")
 try:
 
     response = requests.get(
-        "http://backend:8000/latest_prediction"
+        "http://127.0.0.1:8000/latest_prediction"
     )
 
     result = response.json()
