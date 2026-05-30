@@ -11,6 +11,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of your entire project code
 COPY . .
 
+# Automatically fix Windows line endings (CRLF to LF) inside the container
+RUN sed -i 's/\r$//' start.sh
+
 # Make the startup execution script executable
 RUN chmod +x start.sh
 
