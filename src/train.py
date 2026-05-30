@@ -1,5 +1,7 @@
+
 import pandas as pd
-import joblib
+#import joblib  
+import pickle
 
 from sklearn.model_selection import train_test_split
 from sklearn.compose import ColumnTransformer
@@ -95,6 +97,8 @@ print(classification_report(y_test, y_pred))
 
 # Save model
 
-joblib.dump(pipeline, "models/churn_pipeline.pkl")
+# Replace joblib.dump(pipeline, "models/churn_pipeline.pkl") with:
+with open("models/churn_pipeline.pkl", "wb") as file:
+    pickle.dump(pipeline, file)
 
 print("Model saved successfully!")

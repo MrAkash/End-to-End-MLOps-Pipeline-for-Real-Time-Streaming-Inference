@@ -1,30 +1,30 @@
+####### frontend/streamlit_app.py #####
 import streamlit as st
 import requests
+import json
+import time
+from streamlit_autorefresh import st_autorefresh
 
 st.set_page_config(
-    page_title="Customer Churn Prediction",
+    page_title="Streaming Churn Prediction",
     layout="wide"
 )
 
-st.title("Customer Churn Prediction")
-st.write("Predict whether a customer will churn or not")
+st.title("Real-Time Customer Churn Prediction")
 
-# Layout
+st_autorefresh(interval=10000, key="refresh")
+
+# ---------------- Form ---------------- #
 
 col1, col2 = st.columns(2)
 
 with col1:
 
     gender = st.selectbox("Gender", ["Male", "Female"])
-
     SeniorCitizen = st.selectbox("Senior Citizen", [0, 1])
-
     Partner = st.selectbox("Partner", ["Yes", "No"])
-
     Dependents = st.selectbox("Dependents", ["Yes", "No"])
-
     tenure = st.slider("Tenure", 0, 72, 12)
-
     PhoneService = st.selectbox("Phone Service", ["Yes", "No"])
 
     MultipleLines = st.selectbox(
@@ -101,9 +101,9 @@ with col2:
         value=1000.0
     )
 
-# Predict Button
+# ---------------- Send Data ---------------- #
 
-if st.button("Predict"):
+if st.button("Start Streaming Prediction"):
 
     payload = {
         "gender": gender,
@@ -130,13 +130,32 @@ if st.button("Predict"):
     try:
 
         response = requests.post(
-            "https://customer-churn-prediction-backend-k4gx.onrender.com/predict",
+            "http://backend:8000/predict",
             json=payload
         )
 
         result = response.json()
 
-        st.subheader("Prediction Result")
+        st.success(result["message"])
+
+    except Exception as e:
+
+        st.error(f"Error: {e}")
+
+# ---------------- Fetch Latest Prediction ---------------- #
+
+
+st.subheader("Latest Streaming Prediction")
+
+try:
+
+    response = requests.get(
+        "http://backend:8000/latest_prediction"
+    )
+
+    result = response.json()
+
+    if "prediction" in result:
 
         if result["prediction"] == "Yes":
 
@@ -158,38 +177,10 @@ if st.button("Predict"):
                 """
             )
 
-    except Exception as e:
+    else:
 
-        st.error(f"Error connecting to backend: {e}")
+        st.info("Waiting for streaming prediction...")
 
-st.markdown(
-    """
-    <style>
-    .footer {
-        position: fixed;
-        bottom: 10px;
-        right: 15px;
-        color: gray;
-        font-size: 13px;
-        text-align: right;
-        z-index: 100;
-    }
+except Exception as e:
 
-    .footer a {
-        text-decoration: none;
-        color: #4CAF50;
-        font-weight: bold;
-    }
-    </style>
-
-    <div class="footer">
-        Developed by 
-        <a href="https://github.com/MrAkash" target="_blank">
-            Akash Kadam 🚀
-        </a>
-        <br>
-        Full Stack MLOps Project
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+    st.warning(f"Error fetching prediction: {e}")
