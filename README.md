@@ -7,10 +7,10 @@ Unlike traditional ML applications that perform direct synchronous predictions, 
 ---
 
 ## 🌐 Live Demo
+🚀 **[Launch Live Application](https://customer-churn-prediction-fullstack-mlops.onrender.com)**
 
 [![Live Demo](https://img.shields.io/badge/Live-Demo-success?style=for-the-badge)](https://customer-churn-prediction-fullstack-mlops.onrender.com)
 
-🚀 **[Launch Live Application](https://customer-churn-prediction-fullstack-mlops.onrender.com)**
 ---
 
 ## 📌 Project Overview
