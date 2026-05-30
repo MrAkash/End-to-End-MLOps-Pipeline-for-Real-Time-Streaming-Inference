@@ -1,4 +1,4 @@
-import os  # <--- ADD THIS IMPORT
+import os  
 from kafka import KafkaConsumer
 import json
 import time
@@ -12,7 +12,7 @@ KAFKA_USER = os.getenv("KAFKA_USERNAME")
 KAFKA_PASS = os.getenv("KAFKA_PASSWORD")
 
 # Ensure the results directory exists inside the volume mapping
-os.makedirs("results", exist_ok=True)  # <--- ADD THIS LINE
+os.makedirs("results", exist_ok=True) 
 
 # Define exact feature order used during model training
 FEATURE_ORDER = [
@@ -72,7 +72,7 @@ for message in consumer:
 
         # Structure DataFrame and enforce strict feature ordering
         input_df = pd.DataFrame([data])
-        input_df = input_df[FEATURE_ORDER]  # <--- ADD THIS LINE
+        input_df = input_df[FEATURE_ORDER] 
 
         prediction = model.predict(input_df)[0]
         probability = model.predict_proba(input_df)[0].max()
