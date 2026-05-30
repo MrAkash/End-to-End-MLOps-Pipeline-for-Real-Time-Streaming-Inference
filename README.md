@@ -8,11 +8,9 @@ Unlike traditional ML applications that perform direct synchronous predictions, 
 
 ## 🌐 Live Demo
 
-🚀 **[Launch Live Application](https://customer-churn-prediction-fullstack-mlops.onrender.com)**
-## 🌐 Live Demo
-
 [![Live Demo](https://img.shields.io/badge/Live-Demo-success?style=for-the-badge)](https://customer-churn-prediction-fullstack-mlops.onrender.com)
 
+🚀 **[Launch Live Application](https://customer-churn-prediction-fullstack-mlops.onrender.com)**
 ---
 
 ## 📌 Project Overview
@@ -186,8 +184,8 @@ The trained preprocessing and prediction pipeline is serialized using Joblib and
 ### Clone Repository
 
 ```bash
-git clone https://github.com/your-username/your-repository-name.git
-cd your-repository-name
+git clone https://github.com/MrAkash/End-to-End-MLOps-Pipeline-for-Real-Time-Streaming-Inference.git
+cd End-to-End-MLOps-Pipeline-for-Real-Time-Streaming-Inference
 ```
 
 ### Install Dependencies
